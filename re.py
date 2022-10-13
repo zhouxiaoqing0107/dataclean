@@ -10,4 +10,4 @@ plt.figure(figsize=(15, 10))
 for i in range(len(columns)):
     ax = plt.subplot(4, 4, i + 1)  # 最多画16个小图
     ax.set_title(columns[i])
-# for i in range(len(columns))
+for i in range(len(columns))
