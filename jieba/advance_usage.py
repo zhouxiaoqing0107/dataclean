@@ -109,5 +109,5 @@ def sort_word(x):
 
 word_sort=sort_word(word_freq)
 top_ranked_word=word_sort[:5]
-top_ranked_word
+
 
