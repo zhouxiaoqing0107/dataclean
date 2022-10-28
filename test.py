@@ -1,1 +1,0 @@
-from pack1 import mod1
