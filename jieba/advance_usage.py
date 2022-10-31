@@ -35,6 +35,9 @@ f=','.join(stopword_deleted)
 #input1=open('stopword_deleted.txt','r')
 #input1.read()
 
+# 去除单个字
+# 去除重复词
+
 # 按词性提取
 import jieba.posseg as pseg
 
