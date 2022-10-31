@@ -1,0 +1,31 @@
+#建表
+show create table acct_wt_user_avg_stock_hold_days;
+
+CREATE EXTERNAL TABLE `acct_wt_user_avg_stock_hold_days`(
+  `init_date` string COMMENT '????',
+  `fund_account` string COMMENT '????',
+  `avg_hold_days` decimal(19,0) COMMENT '????????')
+PARTITIONED BY (
+  `part_init_date` string,
+  `interval_type` string)
+CLUSTERED BY (
+  fund_account)
+SORTED BY (
+  fund_account ASC)
+INTO 100 BUCKETS
+ROW FORMAT SERDE
+  'org.apache.hadoop.hive.ql.io.orc.OrcSerde'
+WITH SERDEPROPERTIES (
+  'colelction.delim'='\u0002',
+  'field.delim'='\u0001',
+  'line.delim'='\n',
+  'mapkey.delim'='\u0003',
+  'serialization.format'='\u0001')
+STORED AS INPUTFORMAT
+  'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat'
+OUTPUTFORMAT
+  'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+LOCATION
+  'hdfs://xxx.xxx.xxx.xxx:8020/user/hive/warehouse/hs_wt/acct_wt_user_avg_stock_hold_days'
+TBLPROPERTIES (
+  'transient_lastDdlTime'='1533279332')
